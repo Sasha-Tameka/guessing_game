@@ -8,9 +8,15 @@ out_of_guesses = False
 
 #prompt user
 
-while guess != secret_word:
-    guess = input("Enter first guess: ")
-    tries +=1
-print("You win!")
+while guess != secret_word and not out_of_guesses:
+    if tries < tries_limit:
+        guess = input("Enter first guess: ")
+        tries +=1
+    else:
+        out_of_guesses = True
+if out_of_guesses:
+    print("Out of Guesses, YOU LOSE!")
+else:
+    print("You win!")
 
 
