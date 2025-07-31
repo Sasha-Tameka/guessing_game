@@ -10,11 +10,25 @@ hint_1 = "Hint: it's an animal"
 hint_2 = "Hint: It has 7 letters"
 
 #Validation FUnction
+def get_valid_guess(prompt):
+    while True:
+        guess = input(prompt).lower().strip()
+
+        if not guess:
+            print("Please enter a word")
+            continue
+        if not guess.isalpha():
+            print("Enter only letters")
+            continue
+        if len(guess)<2:
+            print("Word must be at least 2 letters!")
+            continue
+        return guess
 
 # Game Loop
 while not guess_correctly and not out_of_guesses:
     tries += 1
-    guess = input(f"Enter guess #{tries}: ").lower().strip()
+    guess = get_valid_guess(f"Enter guess #{tries}: ").lower().strip()
     if tries == 1:
         print(hint_1)
     elif tries == 2:
