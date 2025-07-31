@@ -9,10 +9,12 @@ guess_correctly = False
 hint_1 = "Hint: it's an animal"
 hint_2 = "Hint: It has 7 letters"
 
-# Prompt user
+#Validation FUnction
+
+# Game Loop
 while not guess_correctly and not out_of_guesses:
     tries += 1
-    guess = input(f"Enter guess #{tries}: ").lower()
+    guess = input(f"Enter guess #{tries}: ").lower().strip()
     if tries == 1:
         print(hint_1)
     elif tries == 2:
