@@ -27,7 +27,9 @@ if difficulty not in word_lists:
     difficulty = random.choice(list(word_lists.keys()))
 
 secret_word = random.choice(word_lists[difficulty])
+start_time = time.time()
 print(f"Playing on {difficulty} mode!")
+print(f"Current Score : {score}")
 
 hint_1 = f"Hint: it's a {difficulty} word"
 hint_2 = f"Hint: It has {len(secret_word)} letters"
@@ -48,6 +50,9 @@ def calculate_score(tries_used,word_length,difficulty,time_taken):
 
     #time bonus
     time_bonus = max(0,60 - int(time_taken))*2
+
+    total_points = guess_bonus + difficulty_bonus + length_bonus + time_bonus
+    return max(total_points,10)
 
 
 
@@ -128,6 +133,25 @@ while not guess_correctly and not out_of_guesses:
 
 # Result
 if guess_correctly:
-    print("You win!")
+    end_time = time.time()
+    time_taken = end_time - start_time
+
+    points_earned = calculate_score(tries, len(secret_word), difficulty, time_taken)
+    score += points_earned
+    games_won += 1
+
+    print(f"🎉 Correct! The word was '{secret_word}'")
+    print(f"⏱️  Time: {time_taken:.1f} seconds")
+    print(f"🎯 Points earned: {points_earned}")
+    print(f"📊 Total Score: {score}")
+
+
+
 else:
     print("Out of Guesses, YOU LOSE!")
+    print(f"💀 The word was: '{secret_word}'")
+    print(f"📊 Total Score: {score}")
+
+games_played += 1
+win_rate = (games_won / games_played) * 100
+print(f"🏆 Win Rate: {win_rate:.1f}% ({games_won}/{games_played})")
