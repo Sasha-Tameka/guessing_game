@@ -7,7 +7,6 @@ games_played = 0
 games_won = 0
 
 # Variables
-secret_word = " "
 tries = 0
 tries_limit = 3
 out_of_guesses = False
