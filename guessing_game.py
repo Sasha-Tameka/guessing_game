@@ -16,6 +16,9 @@ while not guess_correctly and not out_of_guesses:
             guess_correctly = True
             break
         guess_2 = input("Enter second guess: ").lower()
+        if guess_2 == secret_word:
+            guess_correctly = True
+            break
         guess_3 = input("Enter last guess: ").lower()
         tries +=1
         if secret_word in [guess, guess_2,guess_3]:
