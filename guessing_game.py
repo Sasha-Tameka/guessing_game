@@ -32,6 +32,18 @@ print(f"Playing on {difficulty} mode!")
 hint_1 = f"Hint: it's a {difficulty} word"
 hint_2 = f"Hint: It has {len(secret_word)} letters"
 
+#scoring function
+def calculate_score(tries_used,word_length,difficulty,time_taken):
+    base_points = 100
+
+    #points remaining for guesses
+    guess_bonus = (4- tries_used) * 50
+
+    #points for word difficulty
+    difficulty_multiplier = {"easy" : 1.0, "medium" : 1.5, "hard": 2.0}
+    difficulty_bonus = int(base_points * difficulty_multiplier.get(difficulty,1.0))
+
+
 # Validation Function
 def get_valid_guess(prompt):
     while True:
