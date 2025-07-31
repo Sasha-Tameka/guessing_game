@@ -1,4 +1,10 @@
 import random
+import time
+
+#scoring variables
+score = 0
+games_played = 0
+games_won = 0
 
 # Variables
 secret_word = " "
