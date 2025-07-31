@@ -1,31 +1,23 @@
 import random
-#Variables
 
-secret_word = "giraffe"
+# Variables
+secret_word = "giraffe"  # lowercase for consistent comparison
 tries = 0
 tries_limit = 3
 out_of_guesses = False
 guess_correctly = False
 
-#prompt user
-
+# Prompt user
 while not guess_correctly and not out_of_guesses:
-    if tries < tries_limit:
-        guess = input("Enter first guess: ").lower()
-        if guess == secret_word:
-            guess_correctly = True
-            break
-        guess_2 = input("Enter second guess: ").lower()
-        if guess_2 == secret_word:
-            guess_correctly = True
-            break
-        guess_3 = input("Enter last guess: ").lower()
-        if guess_3 == secret_word:
-            guess_correctly = True
-            break
-        tries +=1
-    else:
+    tries += 1
+    guess = input(f"Enter first guess #{tries}: ").lower()
+
+    if guess == secret_word:
+        guess_correctly = True
+    elif tries >= tries_limit:
         out_of_guesses = True
+
+# Result
 if guess_correctly:
     print("You win!")
 else:
