@@ -1,7 +1,7 @@
 import random
 
 # Variables
-#secret_word = "giraffe"
+secret_word = " "
 tries = 0
 tries_limit = 3
 out_of_guesses = False
@@ -9,17 +9,13 @@ guess_correctly = False
 hint_1 = "Hint: it's an animal"
 hint_2 = "Hint: It has 7 letters"
 
-#word categorties
-word_categories = {
-    "animals": ["giraffe", "elephant", "penguin", "dolphin", "butterfly", "kangaroo"],
-    "countries": ["brazil", "japan", "canada", "france", "australia", "mexico"],
-    "colors": ["purple", "orange", "yellow", "crimson", "turquoise", "magenta"],
-    "food": ["pizza", "burger", "spaghetti", "chocolate", "sandwich", "pancake"]
+# Difficulty-based word lists
+word_lists = {
+    "easy": ["cat", "dog", "sun", "car", "book"],  # 3-4 letters
+    "medium": ["apple", "piano", "garden", "bridge"],  # 5-6 letters
+    "hard": ["elephant", "butterfly", "crocodile"]  # 7+ letters
 }
 
-#Select random category and word
-category =random.choice(list((word_categories)))
-secret_word = random.choice(word_categories[category])
 
 
 
