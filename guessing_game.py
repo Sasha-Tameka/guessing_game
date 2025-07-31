@@ -13,6 +13,14 @@ tries_limit = 3
 out_of_guesses = False
 guess_correctly = False
 
+def introduction():
+    print("🎯 Welcome to the Word Guessing Game! 🎯")
+    print("You have 3 tries to guess the secret word.")
+    print("You'll get hints and color-coded feedback!")
+    print("🟩 = Right letter, right spot")
+    print("🟨 = Right letter, wrong spot")
+    print("🟥 = Letter not in word")
+    print("-" * 40)
 
 # Difficulty-based word lists
 word_lists = {
@@ -20,7 +28,8 @@ word_lists = {
     "medium": ["apple", "piano", "garden", "bridge"],  # 5-6 letters
     "hard": ["elephant", "butterfly", "crocodile"]  # 7+ letters
 }
-
+#introduction
+introduction()
 #Let user choose difficulty (or pick randomly)
 difficulty = input("Choose difficulty (easy/medium/hard) or Enter for random: ").lower()
 if difficulty not in word_lists:
@@ -102,8 +111,6 @@ def display_feedback(guess, feedback):
     colors = {'G': '🟩', 'Y': '🟨', 'R': '🟥'}
     print("".join(colors.get(f, '⬜') for f in feedback))
 
-def introduction():
-    print("")
 
 
 # Game Loop
