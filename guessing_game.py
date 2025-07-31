@@ -25,6 +25,12 @@ def get_valid_guess(prompt):
             continue
         return guess
 
+# Letter Feedback Function
+def get_letter_feedback(guess, secret_word):
+    feedback = []
+    secret_letter = list(secret_word)
+
+
 # Game Loop
 while not guess_correctly and not out_of_guesses:
     tries += 1
