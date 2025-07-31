@@ -81,9 +81,7 @@ Feel free to fork this project and submit pull requests! Some ideas for contribu
 4. Create a GUI version
 5. Add multiplayer functionality
 
-## 📝 License
 
-This project is open source and available under the [MIT License](LICENSE).
 
 ## 🎉 Acknowledgments
 

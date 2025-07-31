@@ -43,6 +43,13 @@ def calculate_score(tries_used,word_length,difficulty,time_taken):
     difficulty_multiplier = {"easy" : 1.0, "medium" : 1.5, "hard": 2.0}
     difficulty_bonus = int(base_points * difficulty_multiplier.get(difficulty,1.0))
 
+    #points for word length
+    length_bonus = word_length * 10
+
+    #time bonus
+    time_bonus = max(0,60 - int(time_taken))*2
+
+
 
 # Validation Function
 def get_valid_guess(prompt):
