@@ -6,8 +6,7 @@ tries = 0
 tries_limit = 3
 out_of_guesses = False
 guess_correctly = False
-hint_1 = "Hint: it's an animal"
-hint_2 = "Hint: It has 7 letters"
+
 
 # Difficulty-based word lists
 word_lists = {
@@ -16,8 +15,16 @@ word_lists = {
     "hard": ["elephant", "butterfly", "crocodile"]  # 7+ letters
 }
 
+#Let user choose difficulty (or pick randomly)
+difficulty = input("Choose difficulty (easy/medium/hard) or Enter for random: ").lower()
+if difficulty not in word_lists:
+    difficulty = random.choice(list(word_lists.keys()))
 
+secret_word = random.choice(word_lists[difficulty])
+print(f"Playing on {difficulty} mode!")
 
+hint_1 = f"Hint: it's a {difficulty} word"
+hint_2 = f"Hint: It has {len(secret_word)} letters"
 
 # Validation Function
 def get_valid_guess(prompt):
