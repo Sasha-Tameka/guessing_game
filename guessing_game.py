@@ -6,11 +6,17 @@ tries = 0
 tries_limit = 3
 out_of_guesses = False
 guess_correctly = False
+hint_1 = "Hint: it's an animal"
+hint_2 = "Hint: It has 7 letters"
 
 # Prompt user
 while not guess_correctly and not out_of_guesses:
     tries += 1
-    guess = input(f"Enter first guess #{tries}: ").lower()
+    guess = input(f"Enter guess #{tries}: ").lower()
+    if tries == 1:
+        print(hint_1)
+    elif tries == 2:
+        print(hint_2)
 
     if guess == secret_word:
         guess_correctly = True
